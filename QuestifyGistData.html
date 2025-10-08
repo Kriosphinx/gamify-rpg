@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const questData = {
+            "player": {
+                "name": "Matt",
+                "points": 0
+            },
+            "quests": [
+                {
+                "id": 1,
+                "name": "Spectral Lexicon",
+                "description": "Turning ions into insights.",
+                "status": "In Progress",
+                "type": "main",
+                "icon": "assets/icons/atom.svg",
+                "objectives": [
+                    { "name": "Separation", "purpose": "Read McMaster's 'LC/MS: A Practical User's Guide'.", "points": 1000, "completed": false },
+                    { "name": "Ionization", "purpose": "Read Jorgensen's 'Mass Spectrometry: A Textbook'.", "points": 1200, "completed": false },
+                    { "name": "Extraction", "purpose": "Read Pawliszyn's 'Solid-Phase Microextraction'.", "points": 1000, "completed": false },
+                    { "name": "Interpretation", "purpose": "Read McLafferty's 'Interpreting Mass Spectra'.", "points": 1500, "completed": false },
+                    { "name": "Application", "purpose": "Develop five analytical methods.", "points": 2000, "completed": false }
+                ]
+                },
+                {
+                "id": 2,
+                "name": "Harmony Within, Hurricane Without",
+                "description": "Life is not a game of luck. If you want to win, you have to work hard.",
+                "status": "In Progress",
+                "type": "main",
+                "icon": "assets/icons/muscle.svg",
+                "objectives": [
+                    { "name": "Greed Island", "purpose": "Attend the gym 50 times, following a structured workout plan.", "points": 1500, "progress": 0, "total": 50, "completed": false },
+                    { "name": "The Nine-Fold Fence", "purpose": "Complete 30 guided meditation sessions to improve focus and reduce stress.", "points": 750, "progress": 0, "total": 30, "completed": false },
+                    { "name": "Zuha-ssi", "purpose": "Perform a 15-minute stretching routine 40 times to improve mobility and prevent injury.", "points": 600, "progress": 0, "total": 40, "completed": false },
+                    { "name": "Octane", "purpose": "Adhere to a clean eating plan for 30 consecutive days, focusing on whole foods.", "points": 2000, "completed": false }
+                ]
+                },
+                {
+                "id": 3,
+                "name": "String Theory",
+                "description": "There is geometry in the humming of the strings, there is music in the spacing of the spheres.",
+                "status": "In Progress",
+                "type": "main",
+                "icon": "assets/icons/guitar.svg",
+                "objectives": [
+                    { "name": "Alley Cat", "purpose": "Recored a video playling along to 'Mary Had a Little Lamb'.", "points": 200, "completed": false },
+                    { "name": "Scalar Waves", "purpose": "Do 10 minutes of exercises, 5 times.", "points": 500, "progress": 0, "total": 5, "completed": false },
+                    { "name": "Texas Hold 'Em", "purpose": "Learn and record 3 blue songs.", "points": 1000, "progress": 0, "total": 3, "completed": false }
+                ]
+                },
+                {
+                "id": 4,
+                "name": "He Who Knows Ten Thousand Things",
+                "description": "Enhance your focus, creativity, and intellect through reading",
+                "status": "In Progress",
+                "type": "main",
+                "icon": "assets/icons/library.svg",
+                "objectives": [
+                    { "name": "Waking Dreams", "purpose": "Complete 3 novels.", "points": 1000, "progress": 0, "total": 3, "completed": false }
+                ]
+                },
+                {
+                "id": 5,
+                "name": "Impression",
+                "description": "Refine your personal aesthetic and presentation.",
+                "status": "In Progress",
+                "type": "side",
+                "icon": "assets/icons/tee.svg",
+                "objectives": [
+                    { "name": "Gwang", "purpose": "Follow a consistent morning and nighttime skincare routine for 14 days.", "points": 800, "progress": 0, "total": 28, "completed": false },
+                    { "name": "Visionary Vision", "purpose": "Research a personal style and create a mood board.", "points": 200, "completed": false },
+                    { "name": "Drip", "purpose": "Buy 5 key wardrobe pieces that fit your desired aesthetic.", "points": 500, "completed": false },
+                    { "name": "Optic White", "purpose": "Complete a full teeth-whitening treatment course as per the product's instructions.", "points": 400, "completed": false },
+                    { "name": "Vox Populi", "purpose": "Practice speaking clearly and thoughtfully 10 times", "points": 200, "progress":0, "total": 10, "completed": false }
+                ]
+                },
+                {
+                "id": 6,
+                "name": "Language",
+                "description": "Learn a new language to expand your worldview and connect with the people you care about.",
+                "status": "In Progress",
+                "type": "side",
+                "icon": "assets/icons/kf.svg",
+                "objectives": [
+                    { "name": "Master the Hangul Script", "purpose": "Learn to read and write the Korean alphabet with confidence.", "points": 500, "completed": false },
+                    { "name": "Complete a Beginner's Course", "purpose": "Finish a structured course (e.g., Duolingo Korean path, Talk To Me In Korean Level 1) to build a grammatical foundation.", "points": 1500, "completed": false },
+                    { "name": "Hold a 5-Minute Conversation", "purpose": "Be able to introduce yourself and discuss basic topics with a language partner or tutor.", "points": 2000, "completed": false }
+                ]
+                },
+            {
+            "id": 7,
+            "name": "Culture",
+                "description": "Prove to yourself and others that you are interesting.",
+            "status": "In Progress",
+            "type": "side",
+            "icon": "assets/icons/cooking.svg",
+                "objectives": [
+                    { "name": "The Curator", "purpose": "Study a period of art history, then visit a museum (or virtual gallery) to identify and analyze 10 paintings from that era.", "points": 700, "completed": false },
+                    { "name": "The Gorumet", "purpose": "Cook 12 new and challenging recipes from different cuisines over the year.", "points": 1000, "progress": 0, "total": 12, "completed": false },
+                    { "name": "The Wanderer", "purpose": "Go on 5 hikes", "points": 500, "progress": 0, "total": 5, "completed": false }
+
+                ]
+                },
+                {
+                "id": 8,
+                "name": "Writing",
+                "description": "Express emotion and cultivate creativity.",
+                "status": "In Progress",
+                "type": "side",
+                "icon": "assets/icons/feather.svg",
+                "objectives": [
+                    { "name": "The Daily Log", "purpose": "Establish a consistent journaling habit by writing an entry every day for 30 consecutive days.", "points": 600, "completed": false },
+                    { "name": "Draftsman", "purpose": "Complete the first draft of three short stories, focusing on completion over perfection.", "points": 1500, "progress": 0, "total": 3, "completed": false }
+                ]
+                },
+                {
+                "id": 9,
+                "name": "Technical",
+                "description": "Bring ideas to life through the logic of code and design.",
+                "status": "In Progress",
+                "type": "side",
+                "icon": "assets/icons/code.svg",
+                "objectives": [
+                    { "name": "FileSaver - React/Node", "purpose": "Complete the FileSaver React application, demonstrating mastery of front-end components and state management.", "points": 2500, "completed": false },
+                    { "name": "FileSaver - Spicetify", "purpose": "Reforge the FileSaver app into a custom Spicetify extension, adapting your code to a new environment.", "points": 1500, "completed": false },
+                    { "name": "If Materia~", "purpose": "Complete a free CAD course to learn the fundamentals of 3D modeling and design.", "points": 1000, "completed": false },
+                    { "name": "The Difference Engine", "purpose": "Work through a free textbook or course on differential equations to understand the language of change.", "points": 2000, "completed": false },
+                    { "name": "Tesla-core", "purpose": "Conceptualize, design, and order a simple PCB for a beginner electronics project.", "points": 1500, "completed": false }
+                ]
+                }
+            ],
+            "bounties": [
+                { "id": 1, "name": "Morning Skincare", "points": 5, "type": "daily", "icon": "assets/icons/skin.svg" },
+                { "id": 2, "name": "Strength Training", "points": 20, "type": "daily", "icon": "assets/icons/weights.svg" },
+                { "id": 3, "name": "Cardio Workout", "points": 20, "type": "daily", "icon": "assets/icons/cardio.svg" },
+                { "id": 4, "name": "Practice Guitar (30 mins)", "points": 15, "type": "repeatable", "icon": "assets/icons/guitar.svg" },
+                { "id": 5, "name": "Read fiction (30 mins)", "points": 15, "type": "repeatable", "icon": "assets/icons/openbook.svg" },
+                { "id": 6, "name": "Grocery Shopping", "points": 5, "type": "daily", "icon": "assets/icons/groceries.svg" },
+                { "id": 7, "name": "Floss Teeth", "points": 5, "type": "daily", "icon": "assets/icons/floss.svg" },
+                { "id": 8, "name": "Wake Up Early", "points": 20, "type": "daily", "icon": "assets/icons/alarm.svg" },
+                { "id": 9, "name": "Meditation (5 mins)", "points": 5, "type": "repeatable", "icon": "assets/icons/zen.svg" },
+                { "id": 10, "name": "Shave", "points": 5, "type": "daily", "icon": "assets/icons/shave.svg" },
+                { "id": 11, "name": "Stretch", "points": 10, "type": "daily", "icon": "assets/icons/yoga.svg" },
+                { "id": 12, "name": "Night Skincare", "points": 5, "type": "daily", "icon": "assets/icons/skin2.svg" },
+                { "id": 13, "name": "Journal Before Bed", "points": 5, "type": "daily", "icon": "assets/icons/journal.svg" },
+                { "id": 14, "name": "Study (20 mins)", "points": 20, "type": "repeatable", "icon": "assets/icons/study.svg" },
+                { "id": 15, "name": "Coding (30 mins)", "points": 10, "type": "repeatable", "icon": "assets/icons/code.svg" }
+            ],
+            "rewards": [
+                { "id": 1, "name": "Watch a Drama Episode", "cost": 20, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 2, "name": "Watch an Anime Episode", "cost": 10, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 3, "name": "Watch YouTube (30 mins)", "cost": 15, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 4, "name": "Play Video Games (30 mins)", "cost": 20, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 5, "name": "Drink a Beer", "cost": 20, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 6, "name": "Shot of whiskey", "cost": 20, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 7, "name": "Order Takeout", "cost": 40, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 8, "name": "Take a Gummy", "cost": 60, "icon": "assets/icons/icon_reward_tag.svg" },
+                { "id": 9, "name": "Read FF", "cost": 20, "icon": "assets/icons/icon_reward_tag.svg" }
+            ]
+            }
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamify RPG Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/swords.svg">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* A dark blue-gray */
+            
+        }
+        .font-game {
+            font-family: 'Play', sans-serif;
+        }
+        .rpg-panel {
+            background-color: #1F2937;
+            border: 1px solid #4B5563;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: auto;
+            transition: flex-shrink 0.2s ease, flex-grow 0.2s ease-in-out;
+        }
+        .complete-bounty-btn, .objective-action-btn {
+            background-color: #05df72;
+            color: #111827;
+        }
+        .complete-bounty-btn:hover, .objective-action-btn:hover {
+            background-color: #00c951;
+        }
+        .purchase-reward-btn, .blue-btn {
+            background-color: #51a2ff;
+            color: white;
+        }
+        .purchase-reward-btn:hover, .blue-btn:hover {
+            background-color: #2b7fff;
+        }
+        .green-btn {
+            background-color: #22c55e;
+            color: white;
+        }
+        .green-btn:hover {
+            background-color: #16a34a;
+        }
+        .red-btn {
+            background-color: #f87171;
+            color: white;
+        }
+        .red-btn:hover {
+            background-color: #ef4444;
+        }
+        .gray-btn {
+            background-color: #4b5563;
+            color: white;
+        }
+        .gray-btn:hover {
+            background-color: #6b7280;
+        }
+
+
+
+        .questSummary {
+            max-height: 0px;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        }
+        div[data-quest-id].expanded .questSummary {
+            max-height: 1000px; /* Adjust as needed */
+            opacity: 1;
+        }
+
+        div[data-quest-id] {
+            transition: box-shadow 0.1s ease-in-out, transform 0.05s ease-in-out;
+            overflow: hidden;
+            outline-color: #fcc107; /* Default border color */
+            outline-width: 1px;
+            outline-style: solid;
+        }
+        div[data-quest-id].expanded, div[data-quest-id].expanded:hover {
+            transform: scale(1.015);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            outline-width: 3px;
+            }
+
+            div[data-quest-id]:hover {
+            transform: scale(1.005);
+            outline-width: 2px;
+            }
+
+
+
+
+        img[src$=".svg"] {
+            filter: brightness(0) saturate(100%) invert(81%) sepia(37%) saturate(2774%) hue-rotate(353deg) brightness(102%) contrast(101%);
+        }
+        .rpg-header {
+            color: #FBBF24; /* Amber-400 for a gold look */
+            border-bottom: 1px solid #4B5563;
+        }
+        .scroller {
+            overflow-y: hidden;
+            max-height: auto;
+        }
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        .rpg-panel ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4B5563;
+            border-radius: 0.75rem;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B7280;
+        }
+        /* Animation for point changes */
+        .point-flash {
+            animation: flash 0.5s ease-out;
+        }
+        @keyframes flash {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+         .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="text-gray-200 p-2 sm:p-4 lg:p-6">
+
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header and Character Panel -->
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+            <h1 class="font-game text-2xl sm:text-6xl text-amber-400 tracking-wider">Gamify RPG</h1>
+            <div class="flex items-center gap-4">
+                <div class="rpg-panel px-4 py-2 w-full sm:w-auto min-w-[150px]">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-gray-400">Name:</span>
+                        <span id="player-name" class="font-bold text-xl">Matt</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Points:</span>
+                        <span id="player-points" class="font-bold text-2xl text-amber-300">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Quests Panel (Spans 2 columns on large screens) -->
+            <section class="lg:col-span-2 flex flex-col">
+                <div class="flex flex-col rpg-panel">  
+                <h2 class="rpg-header font-game text-2xl p-4">ACTIVE QUESTS</h2>
+                <div id="quests-container" class="p-4 space-y-4 flex flex-col overflow-y-auto">
+                    <!-- Quests will be dynamically inserted here -->
+                </div></div>
+            </section>
+
+            <!-- Right Column -->
+            <div class="space-y-8 flex flex-col">
+                <!-- Daily Bounties Panel -->
+                <section class="rpg-panel">
+                    <div class="scroller">
+                        <h2 class="rpg-header font-game text-2xl p-4">BOUNTIES</h2>
+                        <div id="bounties-container" class="p-4 space-y-3 max-h-[80vh] overflow-y-auto">
+                            <!-- Bounties will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Rewards Shop Panel -->
+                <section class="rpg-panel">
+                    <div class="scroller">
+                        <h2 class="rpg-header font-game text-2xl p-4">REWARDS SHOP</h2>
+                        <div id="rewards-container" class="p-4 space-y-3 max-h-[40vh] overflow-y-auto">
+                            <!-- Rewards will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Activity Log Panel -->
+                <section class="rpg-panel">
+                    <div class="scroller">
+                        <div class="rpg-header p-4 flex flex-row justify-between items-center">
+                            <h2 class="font-game text-2xl">ACTIVITY LOG</h2>
+                             <div class="flex gap-2">
+                                <button id="settings-btn" class="gray-btn font-semibold py-1 px-2 text-sm rounded transition-colors">Settings</button>
+                                <button id="sync-btn" class="blue-btn font-semibold py-1 px-2 text-sm rounded transition-colors">Sync</button>
+                                <button id="export-csv-btn" class="blue-btn font-semibold py-1 px-2 text-sm rounded transition-colors">Export Log</button>
+                                <button id="reset-btn" class="red-btn font-semibold py-1 px-2 text-sm rounded transition-colors">Reset</button>
+                            </div>
+                        </div>
+                        <div id="history-container" class="p-4 space-y-2 max-h-[20vh] overflow-y-auto">
+                            <!-- History will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop">
+        <div class="rpg-panel w-full max-w-lg">
+            <header class="rpg-header p-4 flex justify-between items-center">
+                <h2 class="font-game text-2xl">Sync Settings</h2>
+                <button id="close-settings-btn" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </header>
+            <div class="p-6 space-y-4">
+                <p class="text-sm text-gray-400">Enter your GitHub Gist ID and Personal Access Token to sync your progress across devices. Your settings are saved only in this browser.</p>
+                <div>
+                    <label for="gist-id-input" class="block text-sm font-medium text-gray-300 mb-1">Gist ID</label>
+                    <input type="text" id="gist-id-input" class="w-full bg-gray-900 border border-gray-600 rounded px-3 py-2 text-gray-200 focus:ring-amber-500 focus:border-amber-500">
+                </div>
+                <div>
+                    <label for="pat-input" class="block text-sm font-medium text-gray-300 mb-1">Personal Access Token (PAT)</label>
+                    <input type="password" id="pat-input" class="w-full bg-gray-900 border border-gray-600 rounded px-3 py-2 text-gray-200 focus:ring-amber-500 focus:border-amber-500">
+                </div>
+                <div class="flex justify-end gap-3 pt-4">
+                    <button id="save-settings-btn" class="green-btn font-semibold py-2 px-4 rounded transition-colors">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-green-500 text-white py-2 px-5 rounded-lg shadow-xl text-lg font-semibold transform translate-y-20 opacity-0 transition-all duration-300">
+        <!-- Message here -->
+    </div>
+
+
+    <script>
+        let state = {};
+        let preservedExpandedQuestIds = new Set();
+
+        // Gist settings
+        let gistId = '';
+        let githubPat = '';
+        const GIST_FILENAME = 'gamify_rpg_save.json';
+
+        // --- PRESERVE EXPANDED STATE ---
+        function preserveExpandedRender() {
+            preservedExpandedQuestIds = new Set(Array.from(document.querySelectorAll('[data-quest-id].expanded')).map(el => el.dataset.questId));
+            renderAll();
+            preservedExpandedQuestIds = new Set();
+        }
+
+        // --- DATA & STATE MANAGEMENT ---
+        async function loadData() {
+            loadSettings();
+            if (gistId && githubPat) {
+                await loadFromGist();
+            } else {
+                await loadInitialData();
+            }
+        }
+        
+        async function loadInitialData() {
+            console.log("Loading initial data from data.json.");
+            try {
+                // const resp = await fetch('data.json', { cache: 'no-cache' });
+                // if (!resp.ok) throw new Error(`Failed to load data.json: ${resp.status}`);
+                // state = await resp.json();
+                state = JSON.parse(JSON.stringify(questData)); // Deep copy from embedded script
+                if (!state.history) state.history = [];
+            } catch (err) {
+                console.error(err);
+                showToast('Error loading default data.json.', 'red');
+                state = { player: { name: 'Error', points: 0 }, quests: [], bounties: [], rewards: [], history: [] };
+            }
+        }
+
+        async function saveToGist() {
+            if (!gistId || !githubPat) {
+                showToast("Settings not configured. Cannot sync.", "red");
+                return;
+            }
+            console.log("Saving progress to Gist...");
+            showToast("Syncing...", "blue");
+            try {
+                const response = await fetch(`https://api.github.com/gists/${gistId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `token ${githubPat}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                    },
+                    body: JSON.stringify({
+                        files: {
+                            [GIST_FILENAME]: {
+                                content: JSON.stringify(state, null, 2)
+                            }
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status}`);
+                }
+                showToast("Progress synced to cloud!");
+            } catch (error) {
+                console.error("Failed to save to Gist:", error);
+                showToast("Sync failed. Check console.", "red");
+            }
+        }
+        
+        async function loadFromGist() {
+            console.log("Loading progress from Gist...");
+            try {
+                const response = await fetch(`https://api.github.com/gists/${gistId}`, {
+                    headers: {
+                        'Authorization': `token ${githubPat}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                    }
+                });
+                if (!response.ok) {
+                     if (response.status === 404) {
+                        console.log("Gist not found. Initializing with default data and attempting to create Gist file.");
+                        await loadInitialData();
+                        await saveToGist(); // Create the initial file in the Gist
+                        return;
+                    }
+                    throw new Error(`GitHub API error: ${response.status}`);
+                }
+                const gistData = await response.json();
+                const file = gistData.files[GIST_FILENAME];
+                if (file && file.content) {
+                    state = JSON.parse(file.content);
+                    showToast("Progress loaded from cloud!");
+                } else {
+                    // File doesn't exist in the Gist, so we load default and save it
+                    console.log("Gist file not found. Saving current state to create it.");
+                    await loadInitialData();
+                    await saveToGist();
+                }
+            } catch (error) {
+                console.error("Failed to load from Gist:", error);
+                showToast("Failed to load from cloud. Using local data.", "red");
+                await loadInitialData();
+            }
+        }
+
+        function loadSettings() {
+            gistId = localStorage.getItem('gamifyRpgGistId') || '';
+            githubPat = localStorage.getItem('gamifyRpgPat') || '';
+        }
+
+        function saveSettings() {
+            const gistIdInput = document.getElementById('gist-id-input').value.trim();
+            const patInput = document.getElementById('pat-input').value.trim();
+            
+            if (gistIdInput && patInput) {
+                localStorage.setItem('gamifyRpgGistId', gistIdInput);
+                localStorage.setItem('gamifyRpgPat', patInput);
+                gistId = gistIdInput;
+                githubPat = patInput;
+                showToast("Settings saved!");
+                closeSettingsModal();
+                loadData().then(preserveExpandedRender); // Reload data with new settings
+            } else {
+                showToast("Both fields are required.", "red");
+            }
+        }
+        
+        function logEvent(type, name, points) {
+            const event = {
+                timestamp: new Date().toISOString(),
+                type,
+                name,
+                points
+            };
+            state.history.unshift(event);
+        }
+
+        // --- DOM ELEMENTS ---
+        const playerNameEl = document.getElementById('player-name');
+        const playerPointsEl = document.getElementById('player-points');
+        const questsContainer = document.getElementById('quests-container');
+        const bountiesContainer = document.getElementById('bounties-container');
+        const rewardsContainer = document.getElementById('rewards-container');
+        const historyContainer = document.getElementById('history-container');
+        const toastEl = document.getElementById('toast');
+        const resetBtn = document.getElementById('reset-btn');
+        const exportCsvBtn = document.getElementById('export-csv-btn');
+        const syncBtn = document.getElementById('sync-btn');
+        const settingsBtn = document.getElementById('settings-btn');
+        const settingsModal = document.getElementById('settings-modal');
+        const closeSettingsBtn = document.getElementById('close-settings-btn');
+        const saveSettingsBtn = document.getElementById('save-settings-btn');
+
+
+        // --- RENDERING FUNCTIONS (No changes needed below) ---
+        function renderAll() {
+            renderCharacter();
+            renderQuests();
+            renderBounties();
+            renderRewards();
+            renderHistory();
+        }
+        function renderCharacter() { playerNameEl.textContent = state.player.name; playerPointsEl.textContent = state.player.points; }
+        function renderQuests() {
+            questsContainer.innerHTML = '';
+            const inProgress = state.quests.filter(q => q.status === 'In Progress');
+            const mainQuests = inProgress.filter(q => q.type === 'main');
+            const sideQuests = inProgress.filter(q => q.type === 'side');
+            if (mainQuests.length) {
+                const header = document.createElement('div');
+                header.className = 'flex items-center justify-between mb-3 px-1';
+                header.innerHTML = `<h3 class="font-game text-xl text-amber-300">Main Quests</h3><span class="text-sm text-gray-400">${mainQuests.length} active</span>`;
+                questsContainer.appendChild(header);
+                mainQuests.forEach(quest => questsContainer.appendChild(createQuestEl(quest)));
+            }
+            if (sideQuests.length) {
+                const header = document.createElement('div');
+                header.className = 'flex items-center justify-between mt-4 px-1';
+                header.innerHTML = `<h3 class="font-game text-lg text-gray-300">Side Quests</h3><span class="text-sm text-gray-400">${sideQuests.length} active</span>`;
+                questsContainer.appendChild(header);
+                sideQuests.forEach(quest => questsContainer.appendChild(createQuestEl(quest)));
+            }
+        }
+        function createQuestEl(quest) {
+            const totalObjectives = quest.objectives.length;
+            const completedObjectives = quest.objectives.filter(obj => obj.completed).length;
+            const progressPercent = totalObjectives > 0 ? (completedObjectives / totalObjectives) * 100 : 0;
+            const questEl = document.createElement('div');
+            const isMain = quest.type === 'main';
+            questEl.className = isMain 
+                ? 'p-4 bg-gray-800 rounded-lg border border-amber-500 hover:border-amber-400 cursor-pointer transition-colors mb-3'
+                : 'p-3 bg-gray-800 rounded-md border border-gray-700 cursor-pointer mb-2';
+            if (preservedExpandedQuestIds.has(String(quest.id))) {
+                questEl.classList.add('expanded');
+            }
+            questEl.dataset.questId = quest.id;
+            const questIcon = quest.icon || 'assets/icons/default-quest.svg';
+            const questSummary = getQuestSummary(quest.id);
+            questEl.innerHTML = `
+                <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <img src="${questIcon}" alt="${quest.name} icon" class="w-6 h-6 mr-3 object-contain" onerror="this.onerror=null;this.src='assets/icons/default-quest.svg'" />
+                        <h3 class="font-bold text-lg ${isMain ? 'text-amber-200' : ''}">${quest.name}</h3>
+                    </div>
+                    <span class="text-sm text-gray-300">${completedObjectives}/${totalObjectives} Objectives</span>
+                </div>
+                <p class="text-sm text-gray-400 mb-3">${quest.description}</p>
+                <div class="questSummary" tabindex="0">${questSummary}</div>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="bg-amber-400 h-2.5 rounded-full" style="width: ${progressPercent}%"></div>
+                </div>
+            `;
+            questEl.addEventListener('click', (e) => {
+                if (e.target.closest('.objective-action-btn')) {
+                    e.preventDefault(); e.stopPropagation();
+                    handleObjectiveUpdate(e, quest.id);
+                } else {
+                    questEl.classList.toggle('expanded');
+                }
+            });
+            return questEl;
+        }
+        function renderBounties() {
+            bountiesContainer.innerHTML = '';
+            state.bounties.forEach(bounty => {
+                const bountyEl = document.createElement('div');
+                bountyEl.className = 'flex justify-between items-center bg-gray-800 p-2 rounded';
+                const bountyIcon = bounty.icon || 'assets/icons/default-quest.svg';
+                bountyEl.innerHTML = `<div class="flex items-center"><img src="${bountyIcon}" alt="${bounty.name} icon" class="w-6 h-6 mr-2 object-contain" onerror="this.onerror=null;this.src='assets/icons/default-quest.svg'" /><span class="text-m">${bounty.name}</span></div><button data-bounty-id="${bounty.id}" class="min-w-[3rem] complete-bounty-btn font-bold py-1 px-1 rounded text-xs transition-colors">+${bounty.points}</button>`;
+                bountiesContainer.appendChild(bountyEl);
+            });
+        }
+        function renderRewards() {
+            rewardsContainer.innerHTML = '';
+            state.rewards.forEach(reward => {
+                const canAfford = state.player.points >= reward.cost;
+                const rewardEl = document.createElement('div');
+                rewardEl.className = 'flex justify-between items-center bg-gray-800 p-2 rounded';
+                const rewardIcon = reward.icon || 'assets/icons/default-quest.svg';
+                rewardEl.innerHTML = `<div class="flex items-center"><img src="${rewardIcon}" alt="${reward.name} icon" class="w-6 h-6 mr-2 object-contain" onerror="this.onerror=null;this.src='assets/icons/default-quest.svg'" /><span class="text-m">${reward.name}</span></div><button data-reward-id="${reward.id}" class="purchase-reward-btn min-w-[3rem] ${canAfford ? '' : 'bg-gray-600 cursor-not-allowed'} font-bold py-1 px-1 rounded text-xs transition-colors" ${!canAfford ? 'disabled' : ''}>-${reward.cost}</button>`;
+                rewardsContainer.appendChild(rewardEl);
+            });
+        }
+        function renderHistory() {
+            historyContainer.innerHTML = '';
+            if (!state.history || state.history.length === 0) {
+                historyContainer.innerHTML = `<p class="text-sm text-gray-500 text-center italic">No activity yet.</p>`; return;
+            }
+            state.history.slice(0, 20).forEach(event => {
+                const isCredit = event.points > 0;
+                const eventEl = document.createElement('div');
+                eventEl.className = 'text-xs text-gray-400 flex justify-between items-center';
+                const date = new Date(event.timestamp);
+                const timeString = (date.getMonth()+1) + '/' + date.getDate();
+                eventEl.innerHTML = `<span>${event.name} (${timeString})</span><span class="font-semibold ${isCredit ? 'text-green-400' : 'text-red-400'}">${isCredit ? '+' : ''}${event.points} Pts</span>`;
+                historyContainer.appendChild(eventEl);
+            });
+            if (state.history.length > 20) {
+                const moreEl = document.createElement('div');
+                moreEl.className = 'text-xs text-gray-400 flex justify-between items-center';
+                moreEl.innerHTML = `<span class="italic">+${state.history.length-20} prior events</span>`;
+                historyContainer.appendChild(moreEl);
+            }
+        }
+        
+        // --- EVENT HANDLERS ---
+        function handleBountyCompletion(e) {
+            const button = e.target.closest('.complete-bounty-btn');
+            if (!button) return;
+            const bountyId = parseInt(button.dataset.bountyId);
+            const bounty = state.bounties.find(b => b.id === bountyId);
+            if (bounty) {
+                state.player.points += bounty.points;
+                logEvent('Bounty', bounty.name, bounty.points);
+                showToast(`+${bounty.points} points for "${bounty.name}"!`);
+                playerPointsEl.classList.add('point-flash', 'text-green-400');
+                preserveExpandedRender();
+                setTimeout(() => playerPointsEl.classList.remove('point-flash', 'text-green-400'), 500);
+            }
+        }
+        function handleRewardPurchase(e) {
+            const button = e.target.closest('.purchase-reward-btn');
+            if (!button) return;
+            const rewardId = parseInt(button.dataset.rewardId);
+            const reward = state.rewards.find(r => r.id === rewardId);
+            if (reward && state.player.points >= reward.cost) {
+                state.player.points -= reward.cost;
+                logEvent('Reward', reward.name, -reward.cost);
+                showToast(`-${reward.cost} points for "${reward.name}"!`, 'red');
+                playerPointsEl.classList.add('point-flash', 'text-red-400');
+                preserveExpandedRender();
+                setTimeout(() => playerPointsEl.classList.remove('point-flash', 'text-red-400'), 500);
+            }
+        }
+        function getQuestSummary(questId) {
+            const quest = state.quests.find(q => q.id === questId); if (!quest) return "";
+            let objectivesHtml = '';
+            quest.objectives.forEach((obj, index) => {
+                let controls = '';
+                if (obj.completed) {
+                     controls = `<button data-objective-index="${index}" data-action="uncomplete" class="objective-action-btn text-xs font-semibold py-1 px-2 rounded">Undo</button>`;
+                } else if (obj.progress !== undefined) {
+                    controls = `<div class="flex items-center gap-2"><button data-objective-index="${index}" data-action="decrement" class="objective-action-btn text-xl font-bold w-6 h-6 flex items-center justify-center rounded-full">-</button><span class="text-sm font-semibold">${obj.progress}/${obj.total}</span><button data-objective-index="${index}" data-action="increment" class="objective-action-btn text-xl font-bold w-6 h-6 flex items-center justify-center rounded-full">+</button></div>`;
+                } else {
+                    controls = `<button data-objective-index="${index}" data-action="complete" class="objective-action-btn text-xs font-semibold py-1 px-2 rounded">Complete</button>`;
+                }
+                objectivesHtml += `<div class="p-3 my-2 rounded-md flex justify-between items-center ${obj.completed ? 'bg-green-900 border-l-4 border-green-500' : 'bg-gray-900'}"><div><p class="font-semibold ${obj.completed ? 'line-through text-gray-500' : ''}">${obj.name}</p><p class="text-xs text-gray-400 mt-1">${obj.purpose}</p></div><div class="flex-shrink-0 ml-4">${controls}</div></div>`;
+            });
+            return objectivesHtml;
+        }
+        function handleObjectiveUpdate(e, qid) {
+            const button = e.target.closest('.objective-action-btn'); if (!button) return;
+            const objectiveIndex = parseInt(button.dataset.objectiveIndex);
+            const action = button.dataset.action;
+            const quest = state.quests.find(q => q.id === qid);
+            const objective = quest.objectives[objectiveIndex];
+            let objectiveCompletedNow = false;
+            if (action === 'increment' && objective.progress < objective.total) {
+                objective.progress++;
+                if (objective.progress === objective.total) { objective.completed = true; objectiveCompletedNow = true; }
+            } else if (action === 'decrement' && objective.progress > 0) {
+                if (objective.completed) { state.player.points -= objective.points; logEvent('Objective Reverted', objective.name, -objective.points); }
+                objective.completed = false;
+                objective.progress--;
+            } else if (action === 'complete') {
+                objective.completed = true; objectiveCompletedNow = true;
+            } else if (action === 'uncomplete') {
+                objective.completed = false;
+                state.player.points -= objective.points;
+                logEvent('Objective Reverted', objective.name, -objective.points);
+                if (objective.progress !== undefined) { objective.progress = objective.total -1; }
+            }
+            if (objectiveCompletedNow) {
+                state.player.points += objective.points;
+                logEvent('Objective', objective.name, objective.points);
+                showToast(`+${objective.points} points! Objective Complete!`);
+            }
+            preserveExpandedRender();
+        }
+
+        // --- UI & MODALS ---
+        function showToast(message, color = 'blue') {
+            toastEl.textContent = message;
+            toastEl.className = `fixed bottom-8 right-8 ${color === 'green' ? 'bg-green-500' : color === 'red' ? 'bg-red-500' : 'bg-blue-500'} text-white py-2 px-5 rounded-lg shadow-xl text-lg font-semibold transform transition-all duration-300`;
+            toastEl.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toastEl.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+        function openSettingsModal() {
+            document.getElementById('gist-id-input').value = gistId;
+            document.getElementById('pat-input').value = githubPat;
+            settingsModal.classList.remove('hidden');
+            settingsModal.classList.add('flex');
+        }
+        function closeSettingsModal() {
+            settingsModal.classList.add('hidden');
+            settingsModal.classList.remove('flex');
+        }
+        
+        function exportHistoryToCSV() {
+            if (!state.history || state.history.length === 0) { showToast("No activity to export.", "red"); return; }
+            let csvContent = "data:text/csv;charset=utf-8,Timestamp,Date,Time,Type,Name,Points\r\n";
+            state.history.forEach(event => {
+                const date = new Date(event.timestamp);
+                const a = s => s.toString().padStart(2,'0');
+                const formattedDate = `${a(date.getMonth()+1)}/${a(date.getDate())}/${date.getFullYear()}`;
+                const formattedTime = `${a(date.getHours())}:${a(date.getMinutes())}:${a(date.getSeconds())}`;
+                const name = `"${event.name.replace(/"/g, '""')}"`;
+                const row = [event.timestamp, formattedDate, formattedTime, event.type, name, event.points].join(",");
+                csvContent += row + "\r\n";
+            });
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "questify_log.csv");
+            document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadData();
+
+            bountiesContainer.addEventListener('click', handleBountyCompletion);
+            rewardsContainer.addEventListener('click', handleRewardPurchase);
+            exportCsvBtn.addEventListener('click', exportHistoryToCSV);
+            syncBtn.addEventListener('click', saveToGist);
+            settingsBtn.addEventListener('click', openSettingsModal);
+            closeSettingsBtn.addEventListener('click', closeSettingsModal);
+            saveSettingsBtn.addEventListener('click', saveSettings);
+            
+            resetBtn.addEventListener('click', async () => {
+                if (confirm("Are you sure you want to reset all your progress? This will revert to the default quests and cannot be undone.")) {
+                    await loadInitialData();
+                    preserveExpandedRender();
+                }
+            });
+
+            preserveExpandedRender();
+        });
+
+
+    </script>
+</body>
+</html>
+
