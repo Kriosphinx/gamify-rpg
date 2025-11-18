@@ -9,7 +9,7 @@
             },
             "quests": [
                 {
-                "id": 1,
+                "id": 7,
                 "name": "Spectral Lexicon",
                 "description": "Turning ions into insights.",
                 "status": "In Progress",
@@ -24,7 +24,7 @@
                 ]
                 },
                 {
-                "id": 2,
+                "id": 1,
                 "name": "Harmony Within, Hurricane Without",
                 "description": "Life is not a game of luck. If you want to win, you have to work hard.",
                 "status": "In Progress",
@@ -38,7 +38,7 @@
                 ]
                 },
                 {
-                "id": 3,
+                "id": 2,
                 "name": "String Theory",
                 "description": "There is geometry in the humming of the strings, there is music in the spacing of the spheres.",
                 "status": "In Progress",
@@ -51,7 +51,7 @@
                 ]
                 },
                 {
-                "id": 4,
+                "id": 3,
                 "name": "He Who Knows Ten Thousand Things",
                 "description": "Enhance your focus, creativity, and intellect through reading",
                 "status": "In Progress",
@@ -81,7 +81,7 @@
                 "name": "Language",
                 "description": "Learn a new language to expand your worldview and connect with the people you care about.",
                 "status": "In Progress",
-                "type": "side",
+                "type": "hidden",
                 "icon": "assets/icons/kf.svg",
                 "objectives": [
                     { "name": "Master the Hangul Script", "purpose": "Learn to read and write the Korean alphabet with confidence.", "points": 500, "completed": false },
@@ -94,7 +94,7 @@
             "name": "Culture",
                 "description": "Prove to yourself and others that you are interesting.",
             "status": "In Progress",
-            "type": "side",
+            "type": "hidden",
             "icon": "assets/icons/cooking.svg",
                 "objectives": [
                     { "name": "The Curator", "purpose": "Study a period of art history, then visit a museum (or virtual gallery) to identify and analyze 10 paintings from that era.", "points": 700, "completed": false },
@@ -104,7 +104,7 @@
                 ]
                 },
                 {
-                "id": 8,
+                "id": 6,
                 "name": "Writing",
                 "description": "Express emotion and cultivate creativity.",
                 "status": "In Progress",
@@ -116,7 +116,7 @@
                 ]
                 },
                 {
-                "id": 9,
+                "id": 4,
                 "name": "Technical",
                 "description": "Bring ideas to life through the logic of code and design.",
                 "status": "In Progress",
@@ -126,8 +126,6 @@
                     { "name": "FileSaver - React/Node", "purpose": "Complete the FileSaver React application, demonstrating mastery of front-end components and state management.", "points": 2500, "completed": false },
                     { "name": "FileSaver - Spicetify", "purpose": "Reforge the FileSaver app into a custom Spicetify extension, adapting your code to a new environment.", "points": 1500, "completed": false },
                     { "name": "If Materia~", "purpose": "Complete a free CAD course to learn the fundamentals of 3D modeling and design.", "points": 1000, "completed": false },
-                    { "name": "The Difference Engine", "purpose": "Work through a free textbook or course on differential equations to understand the language of change.", "points": 2000, "completed": false },
-                    { "name": "Tesla-core", "purpose": "Conceptualize, design, and order a simple PCB for a beginner electronics project.", "points": 1500, "completed": false }
                 ]
                 }
             ],
@@ -580,6 +578,7 @@
             const mainQuests = inProgress.filter(q => q.type === 'main');
             const sideQuests = inProgress.filter(q => q.type === 'side');
             if (mainQuests.length) {
+                mainQuests.sort((a, b) => a.id - b.id)
                 const header = document.createElement('div');
                 header.className = 'flex items-center justify-between mb-3 px-1';
                 header.innerHTML = `<h3 class="font-game text-xl text-amber-300">Main Quests</h3><span class="text-sm text-gray-400">${mainQuests.length} active</span>`;
@@ -587,6 +586,7 @@
                 mainQuests.forEach(quest => questsContainer.appendChild(createQuestEl(quest)));
             }
             if (sideQuests.length) {
+                sideQuests.sort((a, b) => a.id - b.id)
                 const header = document.createElement('div');
                 header.className = 'flex items-center justify-between mt-4 px-1';
                 header.innerHTML = `<h3 class="font-game text-lg text-gray-300">Side Quests</h3><span class="text-sm text-gray-400">${sideQuests.length} active</span>`;
@@ -816,6 +816,7 @@
     </script>
 </body>
 </html>
+
 
 
 
