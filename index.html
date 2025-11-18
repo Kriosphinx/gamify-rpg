@@ -577,12 +577,12 @@
             const inProgress = state.quests.filter(q => q.status === 'In Progress');
             const mainQuests = inProgress.filter(q => q.type === 'main');
             const sideQuests = inProgress.filter(q => q.type === 'side');
+            console.log("Unsorted MQs:")
+            console.log(mainQuests.toString())
+            mainQuests.sort((a, b) => a.id - b.id)
+            console.log("Sorted MQs:")
+            console.log(mainQuests.toString())
             if (mainQuests.length) {
-                console.log("Unsorted MQs:")
-                consol.log(mainQuests.toString())
-                mainQuests.sort((a, b) => a.id - b.id)
-                console.log("Sorted MQs:")
-                consol.log(mainQuests.toString())
                 const header = document.createElement('div');
                 header.className = 'flex items-center justify-between mb-3 px-1';
                 header.innerHTML = `<h3 class="font-game text-xl text-amber-300">Main Quests</h3><span class="text-sm text-gray-400">${mainQuests.length} active</span>`;
@@ -820,6 +820,7 @@
     </script>
 </body>
 </html>
+
 
 
 
